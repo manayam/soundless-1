@@ -1,0 +1,19 @@
+{
+	"warnings": [
+		{
+			"description": "Sounds like the volume is too loud. Consider moving away from the noise."		
+		},
+		{
+			"description": "Sounds like the volume is normal and constant. Your ears will thank you."	
+		},
+		{
+			"description": "Sounds like the volume is normal. Keep it up!"		
+		},
+		{
+			"description": "Sounds like the volume has been too loud for a long period of time. Consider earplugs to maintain normal hearing."
+		},
+		{
+			"description":"Sounds like the volume is normal. Keep it up!"
+		}
+	]
+}

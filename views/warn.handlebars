@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <title>Soundless</title>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+        <!--  charts from chart.js with references from http://tobiasahlin.com/blog/chartjs-charts-to-get-you-started/#6-doughnut-chart-->
+        <script src="js/index.js"></script>
+        <script src="js/volume-meter.js"></script>
+        
+        <style> 
+            .box{
+                width: 100%; 
+                background: black;
+                padding-top: 20px; 
+                padding-bottom: 20px;
+                padding-left: 10px;
+                padding-right: 60px;
+                
+            }
+            
+                .bos{
+                width: 100%; 
+                background: black;
+                padding-left: 5px;  
+                padding-top: 20px; 
+                padding-right: 5px; 
+                padding-bottom: 20px; 
+                            
+                
+            }
+
+    .column {
+    float: left;
+    width: 60%;
+    padding-left: 3px;
+}
+            .column1 {
+    float: right;
+    width: 30%;
+    padding-right: 10px;
+                
+                
+}
+        
+        </style>
+    
+        
+    </head>      
+    <body bgcolor="#3D3A3A">
+
+        <div class="container">
+            <div class="jumbotron">
+
+                <div id="sidemenu" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                     <a href="setting.handlebars"><input type="image" src="images/home.png" width=21px height=20px onclick="closeNav()">&nbsp;&nbsp;Home</a>
+                    <a href="diag.handlebars"><input type="image" src="images/note.png" width=22px height=20px onclick="closeNav()">&nbsp;&nbsp;Diagnostic</a>
+                    <a href="warn.handlebars"><input type="image" src="images/warn.png" width=22px height=19px onclick="closeNav()">&nbsp;&nbsp;Notifications</a>
+                    <a href="history.handlebars"><input type="image" src="images/history.png" width=22px height=21px onclick="closeNav()">&nbsp;&nbsp;Forum</a>
+                    <a href="index.handlebars"><input type="image" src="images/cogs.png" width=22px height=21px onclick="closeNav()">&nbsp;&nbsp;Logout</a>
+                 
+</div>
+
+
+<span id="header1" style="font-size:25px;" onclick="openNav()"> &nbsp;&nbsp;&#9776;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notifications</span>
+                
+<!--
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  Welcome to our Warnings Page! This is where we collect all of your warnings in one page. Take a scroll! 
+</div>
+-->
+</div>
+</div>
+     
+<div class="row">
+  <div class="column">
+    <pre style="text-align:left;" class="box">
+    The volume is too loud.
+    Limit your exposure. </pre>
+    <pre style="text-align:left;" class="box">
+    The volume is loud.
+    Block the noise. </pre>
+    <pre style="text-align:left;" class="box">
+    The volume is loud.
+    Avoid the noise. </pre>
+    <pre style="text-align:left;" class="box">
+    We detect an unpleasant
+    sound. Beware. </pre> 
+    <pre style="text-align:left;" class="box">
+    The volume is too loud.
+    Limit your exposure. </pre>
+    <pre style="text-align:left;" class="box">
+    We detect an unpleasant
+    sound. Beware. </pre> 
+    <pre style="text-align:left;" class="box">
+    The volume is loud.
+    Avoid the noise. </pre>
+    <pre style="text-align:left;" class="box">
+    The volume is loud.
+    Block the noise. </pre>
+    <pre style="text-align:left;" class="box">
+    The volume is too loud.
+    Limit your exposure. </pre>
+    <pre style="text-align:left;" class="box">
+    We detect an unpleasant
+    sound. Beware. </pre> 
+    <pre style="text-align:left;" class="box">
+    The volume is too loud.
+    Limit your exposure. </pre>
+      
+  </div>
+  <div class="column1">
+      <p style="text-align:center;color:#EB5757" id="date" class="bos"></p>
+     <p style="text-align:center;color:#EB5757"  id="date1" class="bos" ></p>
+      <p style="text-align:center;color:#EB5757"  id="date2" class="bos" ></p>
+      <p style="text-align:center;color:#EB5757"  id="date3" class="bos" ></p>
+      <p style="text-align:center;color:#EB5757"  id="date4" class="bos" ></p>
+      <p style="text-align:center;color:#EB5757"  id="date5" class="bos" ></p>
+      <p style="text-align:center;color:#EB5757"  id="date6" class="bos" ></p>
+      <p style="text-align:center;color:#EB5757"  id="date7" class="bos" ></p>
+      <p style="text-align:center;color:#EB5757"  id="date8" class="bos" ></p>
+      <p style="text-align:center;color:#EB5757"  id="date9" class="bos" ></p>
+      <p style="text-align:center;color:#EB5757"  id="date10" class="bos" ></p>
+  </div>
+</div>
+
+</br></br>
+    
+<button class="button4 wrapper" onClick="location.href='warn2.handlebars'">CLEAR ALL</button></br></br>
+        
+<script>
+var dt = new Date();
+
+document.getElementById("date").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear()) +"</br>"+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2))+":"+ (("0"+dt.getSeconds()).slice(-2));
+  
+document.getElementById("date1").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear()) +"</br>"+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2))+":"+ (("0"+dt.getSeconds()).slice(-2));
+    
+document.getElementById("date2").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear()) +"</br>"+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2))+":"+ (("0"+dt.getSeconds()).slice(-2));
+    
+document.getElementById("date3").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear()) +"</br>"+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2))+":"+ (("0"+dt.getSeconds()).slice(-2));
+    
+    document.getElementById("date4").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear()) +"</br>"+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2))+":"+ (("0"+dt.getSeconds()).slice(-2));
+    
+document.getElementById("date5").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear()) +"</br>"+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2))+":"+ (("0"+dt.getSeconds()).slice(-2));
+    
+document.getElementById("date6").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear()) +"</br>"+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2))+":"+ (("0"+dt.getSeconds()).slice(-2));
+    
+document.getElementById("date7").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear()) +"</br>"+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2))+":"+ (("0"+dt.getSeconds()).slice(-2));
+    
+    document.getElementById("date8").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear()) +"</br>"+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2))+":"+ (("0"+dt.getSeconds()).slice(-2));
+    
+document.getElementById("date9").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear()) +"</br>"+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2))+":"+ (("0"+dt.getSeconds()).slice(-2));
+    
+document.getElementById("date10").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear()) +"</br>"+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2))+":"+ (("0"+dt.getSeconds()).slice(-2));
+</script>
+<script src="js/alert.js"></script>
+        
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115444746-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115444746-1');
+</script>
+
+</body>
+
+
+
+</html>

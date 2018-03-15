@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <title>Soundless</title>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+        <!--  charts from chart.js with references from http://tobiasahlin.com/blog/chartjs-charts-to-get-you-started/#6-doughnut-chart-->
+        <script src="js/index.js"></script>
+        <script src="js/volume-meter.js"></script>
+ 
+    
+        
+    </head>      
+    <body bgcolor="#3D3A3A">
+
+        <div class="container">
+            <div class="jumbotron">
+
+                <div id="sidemenu" class="sidenav">
+                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                     <a href="setting.handlebars"><input type="image" src="images/home.png" width=21px height=20px onclick="closeNav()">&nbsp;&nbsp;Home</a>
+                    <a href="diag.handlebars"><input type="image" src="images/note.png" width=22px height=20px onclick="closeNav()">&nbsp;&nbsp;Diagnostic</a>
+                    <a href="warn.handlebars"><input type="image" src="images/warn.png" width=22px height=19px onclick="closeNav()">&nbsp;&nbsp;Notifications</a>
+                    <a href="history.handlebars"><input type="image" src="images/history.png" width=22px height=21px onclick="closeNav()">&nbsp;&nbsp;Forum</a>
+                    <a href="index.handlebars"><input type="image" src="images/cogs.png" width=22px height=21px onclick="closeNav()">&nbsp;&nbsp;Logout</a>
+                 
+</div>
+
+
+<span id="header1" style="font-size:25px;" text-align="center"; onclick="openNav()"> &nbsp;&nbsp;&#9776;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Soundless</span>
+
+</div>
+</div>
+</br>
+
+
+<!--graphs-->
+<canvas id="doughnut-chart" width="10" height="10"></canvas>
+
+<script>
+Chart.defaults.global.defaultFontColor = 'white';
+Chart.defaults.global.defaultFontStyle = 'normal'; 
+Chart.defaults.global.defaultFont = 'Rubik';
+    
+new Chart(document.getElementById("doughnut-chart"), {
+    type: 'doughnut',
+    data: {
+      labels: ["loud 😵", "medium 😳", "normal 😎"],
+      datasets: [
+        {
+          fontFamily: "Rubik",
+        fontSize: 14, 
+          label: "Total Noise Level",
+          backgroundColor: ["#DE3C18", "#F4E746","#14C136"],
+          data: [25,25,50]
+        }
+      ]
+    },
+    options: {
+      title: { 
+          fontFamily: "Rubik",
+          fontSize: 16, 
+          display: true,
+        text: "Noise Level Breakdown",
+      }
+    }
+});
+ 
+    
+</script></br></br></br>
+
+<!-- The canvas that will be used to render the input level -->
+<div class="wrapper">
+    <h9>Volume Meter</h9></br></br>
+<canvas id="meter" width="340%" height="50%" style="border: 3px solid white;"></canvas></br></br>
+</div>
+
+<script>
+/*
+The MIT License (MIT)
+Copyright (c) 2014 Chris Wilson
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+var audioContext = null;
+var meter = null;
+var canvasContext = null;
+var WIDTH=500;
+var HEIGHT=50;
+var rafID = null;
+var array = [];
+window.onload = function() {
+    // grab our canvas
+	canvasContext = document.getElementById( "meter" ).getContext("2d");
+	
+    // monkeypatch Web Audio
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+	
+    // grab an audio context
+    audioContext = new AudioContext();
+    // Attempt to get audio input
+    try {
+        // monkeypatch getUserMedia
+        navigator.getUserMedia = 
+        	navigator.getUserMedia ||
+        	navigator.webkitGetUserMedia ||
+        	navigator.mozGetUserMedia;
+        // ask for an audio input
+        navigator.getUserMedia(
+        {
+            "audio": {
+                "mandatory": {
+                    "googEchoCancellation": "false",
+                    "googAutoGainControl": "false",
+                    "googNoiseSuppression": "false",
+                    "googHighpassFilter": "false"
+                },
+                "optional": []
+            },
+        }, onMicrophoneGranted, onMicrophoneDenied);
+    } catch (e) {
+        alert('getUserMedia threw exception :' + e);
+    }
+    
+    
+    
+var dps = []; // dataPoints
+var chart = new CanvasJS.Chart("chartContainer", {
+    backgroundColor:'#3D3A3A',
+    theme: 'dark1',
+    
+	title :{
+		text: "History of Sound Level in dB",
+        fontFamily: "Rubik",
+        fontWeight: "bold",
+        fontSize: 16,
+        fontColor: "white",
+        padding: 14,
+	},
+	axisY: {
+		includeZero: false
+	},      
+	data: [{
+		type: "line",
+		dataPoints: dps,
+            lineColor:"#145DC1",
+        lineThickness: 4,
+    markerType: "none",
+        fontColor: "white",
+	}]
+});
+var xVal = 0;
+var yVal = 0 
+var updateInterval = 100;
+var dataLength = 20; // number of dataPoints visible at any point
+var updateChart = function (count) {
+	count = count || 1;
+	for (var j = 0; j < count; j++) {
+        if (array.length > 0)
+            yVal = array.shift()
+        else yVal = 0
+            
+		dps.push({
+			x: xVal,
+			y: yVal
+		});
+		xVal++;
+	}
+	if (dps.length > dataLength) {
+		dps.shift();
+	}
+	chart.render();
+};
+updateChart(dataLength);
+setInterval(function(){updateChart()}, updateInterval);
+    
+}
+function onMicrophoneDenied() {
+    alert('Stream generation failed.');
+}
+var mediaStreamSource = null;
+function onMicrophoneGranted(stream) {
+    // Create an AudioNode from the stream.
+    mediaStreamSource = audioContext.createMediaStreamSource(stream);
+    // Create a new volume meter and connect it.
+    meter = createAudioMeter(audioContext);
+    mediaStreamSource.connect(meter);
+    // kick off the visual updating
+    onLevelChange();
+}
+function onLevelChange( time ) {
+    // clear the background
+    canvasContext.clearRect(0,0,WIDTH,HEIGHT);
+    // check if we're currently clipping
+    if (meter.checkClipping())
+        canvasContext.fillStyle = "purple";
+    else
+        canvasContext.fillStyle = "purple";
+    var vol = meter.volume * WIDTH * 1.4
+    //console.log(vol);
+    array.push(meter.volume  * 1.4)
+    //console.log("Volume is: " + meter.volume * WIDTH * 1.4)
+    
+    
+    // draw a bar based on the current volume
+    canvasContext.fillRect(0, 0, meter.volume * WIDTH * 1.4, HEIGHT);
+    
+    
+    // set up the next visual callback
+    rafID = window.requestAnimationFrame( onLevelChange );
+}
+</script>
+
+
+
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115444746-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115444746-1');
+</script>
+
+</body>
+
+<div>
+    <div class="home"></div>
+    <div class="bottom-bar"></div>
+
+</div>
+
+
+</html>

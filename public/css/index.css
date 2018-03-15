@@ -1,0 +1,547 @@
+@import url("https://fonts.googleapis.com/css?family=Rubik"); 
+span {
+    font-family: 'Rubik', sans-serif;
+    color: white; 
+    font-weight: 200px; 
+    padding-top: 20px; 
+    padding-bottom: 20px; 
+    padding-left: 10px; 
+    display:block;
+}
+
+body{
+    font-family: 'Rubik', sans-serif;
+    font-size: 12px;
+    padding: 3px; 
+    font-weight: lighter;
+}
+
+.jumbotron{
+    background-color: #5C5A59; 
+    padding: 1px; 
+}
+
+
+#rectangle{
+    width:100%;
+    height:100%;
+    background:black;
+    padding-top: 1%; 
+    padding-bottom: 40%; 
+}
+
+.rectangle2{
+    width:100%;
+    height:30%;
+    background:black;
+}
+
+h2{
+    font-family: 'Rubik', sans-serif;
+    color: #EB5757;  
+    font-size: 18px; 
+    font-weight: lighter;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 10%;
+    margin-right: 10%; 
+}
+
+h9{
+    font-family: 'Rubik', sans-serif;
+    color: white;  
+    font-size: 16px; 
+    font-weight: bold;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+h2{
+    font-family: 'Rubik', sans-serif;
+    color: #EB5757;  
+    font-size: 18px; 
+    font-weight: lighter;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+h10{
+    font-family: 'Rubik', sans-serif;
+    color: black;  
+    font-size: 14px; 
+    font-weight: bold;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+h3{
+    font-family: 'Rubik', sans-serif;
+    color: white;  
+    font-size: 18px; 
+    font-weight: lighter;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#log{
+    font-family: 'Rubik', sans-serif;
+    color: white;  
+    font-size: 18px; 
+    font-weight: lighter;
+    text-align: center;
+    padding: 20px;
+    background-color: black; 
+}
+
+#idq{
+    font-family: 'Rubik', sans-serif;
+    color: white;  
+    font-size: 18px; 
+    font-weight: lighter;
+    text-align: center;
+    padding: 20px;
+    background-color: black; 
+}
+
+h4{
+    font-family: 'Rubik', sans-serif;
+    color: white;  
+    font-size: 18px; 
+    font-weight: lighter;
+    text-align: center;
+    padding-bottom: 150px;
+    padding-top: 140px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+h5{
+    font-family: 'Rubik', sans-serif;
+    color: white;  
+    font-weight: lighter;
+    font-size: 30px; 
+    text-align: center;
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+h6{
+    font-family: 'Rubik', sans-serif;
+    color: #EB5757;  
+    font-size: 30px; 
+    font-weight: lighter;
+    text-align: center;
+    padding-top: 5px; 
+}
+
+h7{
+    font-family: 'Rubik', sans-serif;
+    color: #EB5757;  
+    font-size: 30px; 
+    font-weight: lighter;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 50px; 
+}
+
+.h7{
+    font-family: 'Rubik', sans-serif;
+    color: #EB5757;  
+    font-size: 30px; 
+    font-weight: lighter;
+    text-align: center;
+    padding-top: 20px; 
+    padding-bottom: 10px;
+}
+
+
+.h8{
+    font-family: 'Rubik', sans-serif;
+    color: #EB5757;  
+    font-size: 20px; 
+    font-weight: lighter;
+    text-align: center;
+    padding-top: 120px; 
+    padding-bottom: 10px;
+}
+
+.hold{
+    font-family: 'Rubik', sans-serif;
+    color: goldenrod;  
+    font-size: 18px; 
+    font-weight: lighter;
+    text-align: center;
+    margin-left: 15px;
+    margin-right: 15px; 
+}
+
+p{
+    font-family: 'Rubik', sans-serif;
+    color: white;  
+    font-size: 16px; 
+    font-weight: lighter;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+pre{
+    font-family: 'Rubik', sans-serif;
+    color: white;  
+    font-size: 16px; 
+    font-weight: lighter;
+    text-align: left;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 30px;
+}
+
+.answers{
+    font-family: 'Rubik', sans-serif;
+    color: white;  
+    font-size: 14px; 
+    font-weight: lighter;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+p1{
+    font-family: 'Rubik', sans-serif;
+    color: white;  
+    font-size: 14px; 
+    font-weight: lighter;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+p2{
+    font-family: 'Rubik', sans-serif;
+    color: red;  
+    font-size: 16px; 
+    font-weight: lighter;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+p3{
+    font-family: 'Rubik', sans-serif;
+    color: #EB5757;  
+    font-size: 16px; 
+    font-weight: lighter;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #B4B3B3;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 160px;
+}
+
+.sidenav a {
+    padding: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: white;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 10px;
+}
+
+.button2 {
+    font-family: 'Rubik', sans-serif;
+    color: white; 
+    font-size: 50px;
+    background-color: black; 
+    border: 2px;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: black; 
+    color: white; 
+    border: 2px solid #FBF2F2;
+    width: 70%;
+    text-align: center; 
+    padding: 10px; 
+    font: 80px; 
+}
+
+.button1:hover {
+    background-color: white;
+    color: black;
+}
+
+.button4 {
+    background-color: black; 
+    color: white; 
+    border: 2px solid #FBF2F2;
+    width: 100%;
+    text-align: center; 
+    padding: 10px; 
+    font: 80px; 
+}
+
+.button4:hover {
+    background-color: white;
+    color: black;
+}
+.button3 {
+    background-color: black; 
+    color: white; 
+    border: 2px solid #FBF2F2;
+    width: 90%;
+    text-align: center; 
+    padding: 10px; 
+    font: 80px; 
+}
+
+.button3:hover {
+    background-color: white;
+    color: black;
+}
+
+.button2 {
+    background-color: black; 
+    color: white; 
+    border: 2px solid #FBF2F2;
+    width: 20%;
+    text-align: center; 
+    padding: 10px; 
+    font: 10px; 
+}
+
+.button2:hover {
+    background-color: white;
+    color: black;
+}
+
+input[type=text] {
+    width: 60%;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 20px;
+}
+
+.recs{
+    width: 94%;
+    padding: 3%;
+    background: black; 
+    text-align: center; 
+}
+
+.recs1{
+    width: 100%;
+    height:50px;
+    background: black; 
+    text-align: center; 
+}
+
+
+.buttonf {
+  background-color: #D8D8D4;
+  color: black;
+  border-radius: 10px; 
+  border: 3px solid #5C5A59; 
+  padding: 15px 60px;
+  font-size: 17px;
+  font-family: Rubik;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.buttonh {
+  background-color: #D8D8D4;
+  color: black;
+  border-radius: 10px; 
+  border: 3px solid #5C5A59; 
+  padding: 15px 80px;
+  font-size: 17px;
+  font-family: Rubik;
+  cursor: pointer;
+  text-decoration: none; 
+}
+
+.buttonj {
+  background-color: #D8D8D4;
+  color: black;
+  border-radius: 10px; 
+  border: 3px solid #5C5A59; 
+  padding: 15px 70px;
+  font-size: 17px;
+  font-family: Rubik;
+  cursor: pointer;
+  text-decoration: none; 
+}
+
+.buttonk {
+  background-color: #D8D8D4;
+  color: black;
+  border-radius: 10px; 
+  border: 3px solid #5C5A59; 
+  padding: 15px 75px;
+  font-size: 17px;
+  font-family: Rubik;
+  cursor: pointer;
+  text-decoration: none; 
+}
+
+
+.buttonf:hover {
+  opacity: 0.8;
+  background: white; 
+  color: black; 
+}
+            
+.wrapper {
+    text-align: center;
+}
+
+buttonz {
+  background-color: black;
+  color: #ffffff;
+  border: 3px solid white;
+  border-radius: 10px;    
+  padding: 15px 90px;
+  font-size: 17px;
+  font-family: 'Rubik', sans-serif;
+  cursor: pointer;
+}
+
+buttonz:hover {
+  opacity: 0.8;
+  background: white; 
+  color: black; 
+}
+
+#prevBtn {
+background-color: gainsboro;
+  color: black;
+  border: 3px solid gainsboro;
+  border-radius: 10px;    
+  padding: 10px 10px;
+  font-size: 12px;
+  font-family: 'Rubik', sans-serif;
+  cursor: pointer;
+}
+
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: gainsboro;
+  position: fixed;
+  bottom: 0;
+  width: 93%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding-left: 7%;
+  padding-right: 7%; 
+  padding-top: 18px; 
+  padding-bottom: 15px; 
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.navbar a.active {
+  background-color: grey;
+  color: black;
+}
+.alert {
+    padding: 16px;
+    background-color: #f44336;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <title>Diagnostic</title>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+        <!--  charts from chart.js with references from http://tobiasahlin.com/blog/chartjs-charts-to-get-you-started/#6-doughnut-chart-->
+        <script src="js/index.js"></script>
+        <script src="js/volume-meter.js"></script>
+    </head>
+
+    <body bgcolor="#3D3A3A">
+
+        <div class="container">
+            <div class="jumbotron">
+
+                <div id="sidemenu" class="sidenav">
+                          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                     <a href="setting.handlebars"><input type="image" src="images/home.png" width=21px height=20px onclick="closeNav()">&nbsp;&nbsp;Home</a>
+                    <a href="diag.handlebars"><input type="image" src="images/note.png" width=22px height=20px onclick="closeNav()">&nbsp;&nbsp;Diagnostic</a>
+                    <a href="warn.handlebars"><input type="image" src="images/warn.png" width=22px height=19px onclick="closeNav()">&nbsp;&nbsp;Notifications</a>
+                    <a href="history.handlebars"><input type="image" src="images/history.png" width=22px height=21px onclick="closeNav()">&nbsp;&nbsp;Forum</a>
+                    <a href="index.handlebars"><input type="image" src="images/cogs.png" width=22px height=21px onclick="closeNav()">&nbsp;&nbsp;Logout</a>
+</div>
+
+
+<span id="header1" style="font-size:25px;" onclick="openNav()"> &nbsp;&nbsp;&#9776;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Diagnostic</span>
+
+
+</div>
+</div>
+<!--jumbotron end-->
+
+<div id="rectangle" class="wrapper">
+<h6>Sounds</h6>
+<h3>The next few questions will require you to listen to puretones and words. Choose your listening device.</h3></br>
+
+
+<button class="button1" onClick="location.href='diag6.handlebars'">SPEAKER</button></br></br>
+<button class="button1" onClick="location.href='diag6.handlebars'">HEADPHONES</button></br></br></br>
+
+ <p><buttonz type="buttonz" id="prevBtn" onClick="location.href='diag4.handlebars'">Previous</button></p>
+ <p><buttonz type="buttonz" id="prevBtn" onClick="location.href='diag.handlebars'">Save + Exit</button></p>
+</div>
+
+<script src="js/index.js"></script>
+<script src="js/alert.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115444746-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115444746-1');
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+{
+	"recommends": [
+		{
+            "questions": "Why is hearing loss so important?",
+			"description": "Research confirms that treating hearing loss can combat or delay many of these ill effects - and lead to improved relationships, confidence and quality of life."		
+		},
+		{
+            "questions": "What are signs of hearing loss?",
+			"description": "If you notice that you can hear ringing in your ears, that may be a sign of hearing loss and you should consider taking precautions to prevent further hearing loss."		
+		},
+		{
+            "questions": "What is tinnitus?",
+			"description": "More often than not severe tinnitus (or ringing in the ears) will accompany the hearing loss and may be just as debilitating as the hearing loss itself."		
+		},
+		{
+            "questions": "I'm not old. Should I care about my hearing?",
+			"description": "Gradual hearing loss can affect people of all ages -- varying from mild to profound. Hearing loss is a sudden or gradual decrease in how well you can hear. Depending on the cause, it can be mild or severe, temporary or permanent."	
+		},
+		{
+            "questions": "Does hearing loss happen suddenly?",
+			"description": "Noise-induced hearing loss may happen slowly over time or suddenly. Being exposed to everyday noises, such as listening to very loud music, being in a noisy work environment, or using a lawn mower, can lead to hearing loss over many years."
+		}
+	]
+}
+
